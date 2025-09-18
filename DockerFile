@@ -4,9 +4,9 @@
 FROM maven:3.9.9-eclipse-temurin-17 AS build
 
 WORKDIR /src
-COPY UserApp/pom.xml .
+COPY pom.xml .
 RUN mvn -q -DskipTests dependency:go-offline
-COPY UserApp/src ./src
+COPY src ./src
 RUN mvn -q -DskipTests package
 
 # ----------------------------
